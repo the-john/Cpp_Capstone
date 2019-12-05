@@ -10,7 +10,7 @@ To enable a review of this code and its functionality, I've included a short .mp
 
 The file and class structure of this program is shown below:
 
-![](https://github.com/the-john/Cpp_Capstone/blob/master/models/program.jpg)
+<p align="center">![](https://github.com/the-john/Cpp_Capstone/blob/master/models/program.jpg)<p align="center">
 
 The program reads in a video file image (and .mp4 file).  (NOTE: a live feed from a USB webcam can readily replace the video file image.)  In an attempt to speed up the performance, a copy of the image is made and shrunk.  This shrunken image is then sent to a pre-defined and pre-trained face recogniton algorithm called haarcascade_frontalface_alt.xml.  The face recognition algorithm returns the presence of a face (if it can identify one) by giving coordinates to the location of that face in the image.  These face coordinates are used to determine the middle of the face, and a cross-hairs marker colored as red is drawn onto the middle of the face for identification and location purposes.
 
