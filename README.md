@@ -42,11 +42,14 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 ## Project Specifications
 
 ### README Criteria
-* A README with instructions is included with this project: **Done-**  Refer to the top section of this README.
+* A README with instructions is included with this project: **Done-**  
+    * Refer to the top section of this README.
 
-* The README indicates which project is chosen: **Done-**  Refer to the top section of this README.
+* The README indicates which project is chosen: **Done-**  
+    * Refer to the top section of this README.
 
-* Project rubric points: **Done-**  You're currently reading it now.
+* Project rubric points: **Done-**  
+    * You're currently reading it now.
 
 ### Compiling and Testing Criteria
 * Submission must compile and run: **Done-**
