@@ -43,7 +43,7 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 
 ## Project Specifications
 
-### README Criteria
+#### README Criteria
 * A README with instructions is included with this project: **Done-**  
     * Refer to the top section of this README.
 
@@ -53,17 +53,17 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 * Project rubric points: **Done-**  
     * You're currently reading it now.
 
-### Compiling and Testing Criteria
+#### Compiling and Testing Criteria
 * Submission must compile and run: **Done-**
 
-### Loops, Functions, I/O Criteria
+#### Loops, Functions, I/O Criteria
 * Functions and control strucutures: 
 
 * Reads file data & processes it:  Done- main.cpp line 22
 
 * Accept user input and process it:  Done- main.cpp line 61
 
-### Object Oriented Programming
+#### Object Oriented Programming
 * Use Object Oriented Programming techniques: 
 
 * Classes use access specifiers for class members:
@@ -82,7 +82,7 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 
 * Templates generalize functions in project:
 
-### Memory Management Criteria
+#### Memory Management Criteria
 * Use of references in function declarations:
 
 * Use destructors appropriately:
@@ -95,7 +95,7 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 
 * Use smart pointers:
 
-### Concurrency Criteria
+#### Concurrency Criteria
 * Use multithreading:
 
 * Use a promise and a future:
