@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named capstone
+# Target rules for targets named faceTrack
 
 # Build rule for target.
-capstone: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 capstone
-.PHONY : capstone
+faceTrack: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 faceTrack
+.PHONY : faceTrack
 
 # fast build rule for target.
-capstone/fast:
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/build
-.PHONY : capstone/fast
+faceTrack/fast:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/build
+.PHONY : faceTrack/fast
 
 src/main.o: src/main.cpp.o
 
@@ -129,7 +129,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -138,7 +138,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -147,7 +147,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -157,7 +157,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... capstone"
+	@echo "... faceTrack"
 	@echo "... edit_cache"
 	@echo "... src/main.o"
 	@echo "... src/main.i"

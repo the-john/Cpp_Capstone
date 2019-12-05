@@ -65,39 +65,39 @@ CMAKE_SOURCE_DIR = /home/workspace/capstone
 CMAKE_BINARY_DIR = /home/workspace/capstone/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/capstone.dir
+# Target rules for target CMakeFiles/faceTrack.dir
 
 # All Build rule for target.
-CMakeFiles/capstone.dir/all:
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/depend
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=1,2 "Built target capstone"
-.PHONY : CMakeFiles/capstone.dir/all
+CMakeFiles/faceTrack.dir/all:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/depend
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=1,2 "Built target faceTrack"
+.PHONY : CMakeFiles/faceTrack.dir/all
 
 # Include target in all.
-all: CMakeFiles/capstone.dir/all
+all: CMakeFiles/faceTrack.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/capstone.dir/rule: cmake_check_build_system
+CMakeFiles/faceTrack.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/capstone/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/capstone.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/faceTrack.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/capstone/build/CMakeFiles 0
-.PHONY : CMakeFiles/capstone.dir/rule
+.PHONY : CMakeFiles/faceTrack.dir/rule
 
 # Convenience name for target.
-capstone: CMakeFiles/capstone.dir/rule
+faceTrack: CMakeFiles/faceTrack.dir/rule
 
-.PHONY : capstone
-
-# clean rule for target.
-CMakeFiles/capstone.dir/clean:
-	$(MAKE) -f CMakeFiles/capstone.dir/build.make CMakeFiles/capstone.dir/clean
-.PHONY : CMakeFiles/capstone.dir/clean
+.PHONY : faceTrack
 
 # clean rule for target.
-clean: CMakeFiles/capstone.dir/clean
+CMakeFiles/faceTrack.dir/clean:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/clean
+.PHONY : CMakeFiles/faceTrack.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/faceTrack.dir/clean
 
 .PHONY : clean
 
