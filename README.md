@@ -10,7 +10,7 @@ To enable a review of this code and its functionality, I've included a short .mp
 
 The file and class structure of this program is shown below:
 
-![](https://github.com/the-john/Cpp_Capstone/models/program.jpg)
+![](https://github.com/the-john/Cpp_Capstone/blob/master/models/program.jpg)
 
 The program reads in a video file image (and .mp4 file).  (NOTE: a live feed from a USB webcam can readily replace the video file image.)  In an attempt to speed up the performance, a copy of the image is made and shrunk.  This shrunken image is then sent to a pre-defined and pre-trained face recogniton algorithm called haarcascade_frontalface_alt.xml.  The face recognition algorithm returns the presence of a face (if it can identify one) by giving coordinates to the location of that face in the image.  These face coordinates are used to determine the middle of the face, and a cross-hairs marker colored as red is drawn onto the middle of the face for identification and location purposes.
 
@@ -41,36 +41,60 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 
 ## Project Specifications
 
-### Criteria
+### README Criteria
 A README with instructions is included with this project: Done-  Refer to the top section of this README.
+
 The README indicates which project is chosen: Done-  Refer to the top section of this README.
+
 Project rubric points: Done-  You're currently reading it now.
 
-### Criteria
+### Compiling and Testing Criteria
 Submission must compile and run: Done-
-Loops, Functions, I/O: Done- main.cpp line 46 (loop), (functions), main.cpp line 62 (input) and maing.cpp line 63 (output)
 
-### Criteria
+### Loops, Functions, I/O Criteria
+Functions and control strucutures: 
+
+Reads file data & processes it:  Done- main.cpp line 22
+
+Accept user input and process it:  Done- main.cpp line 61
+
+### Object Oriented Programming
 Use Object Oriented Programming techniques: 
+
 Classes use access specifiers for class members:
+
 Class constructors use member initialization lists:
+
 Class abstraction of implementation details:
+
 Class encapsulate behavior:
+
 Classes follow inheritance hierarchy:
+
 Overloaded functions:
+
 Derived Class functions override virtual base class functions:
+
 Templates generalize functions in project:
 
-### Criteria
+### Memory Management Criteria
 Use of references in function declarations:
+
 Use destructors appropriately:
+
 Use RAII where approprate:
+
 Follow the Rule of 5:
+
 Use move semantics:
+
 Use smart pointers:
 
-### Criteria
+### Concurrency Criteria
 Use multithreading:
+
 Use a promise and a future:
+
 Mutex or lock is used:
+
 Use condition variable:
