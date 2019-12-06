@@ -6,14 +6,24 @@
 
 #IncludeRegexTransform: 
 
-/home/workspace/capstone/src/main.cpp
-iostream
--
+/home/workspace/capstone/src/crossHair.h
 opencv2/objdetect.hpp
 -
-opencv2/highgui.hpp
+opencv2/imgproc.hpp
+-
+
+/home/workspace/capstone/src/face.cpp
+opencv2/objdetect.hpp
 -
 opencv2/imgproc.hpp
+-
+face.h
+/home/workspace/capstone/src/face.h
+crossHair.h
+/home/workspace/capstone/src/crossHair.h
+
+/home/workspace/capstone/src/face.h
+opencv2/objdetect.hpp
 -
 
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv/cxcore.h

@@ -15,6 +15,6 @@ message(STATUS "    version:  ${OpenCV_VERSION}")
 message(STATUS "    libraries:  ${OpenCV_LIBS}")
 message(STATUS "    include path:  ${OpenCV_INCUDE_DIRS}")
 ]]
-add_executable(faceTrack src/main.cpp)
+add_executable(faceTrack src/main.cpp src/face.cpp src/crossHair.cpp)
 
 target_link_libraries(faceTrack LINK_PRIVATE ${OpenCV_LIBS})

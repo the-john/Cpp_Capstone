@@ -123,6 +123,60 @@ faceTrack/fast:
 	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/build
 .PHONY : faceTrack/fast
 
+src/crossHair.o: src/crossHair.cpp.o
+
+.PHONY : src/crossHair.o
+
+# target to build an object file
+src/crossHair.cpp.o:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/crossHair.cpp.o
+.PHONY : src/crossHair.cpp.o
+
+src/crossHair.i: src/crossHair.cpp.i
+
+.PHONY : src/crossHair.i
+
+# target to preprocess a source file
+src/crossHair.cpp.i:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/crossHair.cpp.i
+.PHONY : src/crossHair.cpp.i
+
+src/crossHair.s: src/crossHair.cpp.s
+
+.PHONY : src/crossHair.s
+
+# target to generate assembly for a file
+src/crossHair.cpp.s:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/crossHair.cpp.s
+.PHONY : src/crossHair.cpp.s
+
+src/face.o: src/face.cpp.o
+
+.PHONY : src/face.o
+
+# target to build an object file
+src/face.cpp.o:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/face.cpp.o
+.PHONY : src/face.cpp.o
+
+src/face.i: src/face.cpp.i
+
+.PHONY : src/face.i
+
+# target to preprocess a source file
+src/face.cpp.i:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/face.cpp.i
+.PHONY : src/face.cpp.i
+
+src/face.s: src/face.cpp.s
+
+.PHONY : src/face.s
+
+# target to generate assembly for a file
+src/face.cpp.s:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/face.cpp.s
+.PHONY : src/face.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... faceTrack"
 	@echo "... edit_cache"
+	@echo "... src/crossHair.o"
+	@echo "... src/crossHair.i"
+	@echo "... src/crossHair.s"
+	@echo "... src/face.o"
+	@echo "... src/face.i"
+	@echo "... src/face.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

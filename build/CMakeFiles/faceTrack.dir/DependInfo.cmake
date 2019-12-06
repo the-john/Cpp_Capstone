@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/workspace/capstone/src/crossHair.cpp" "/home/workspace/capstone/build/CMakeFiles/faceTrack.dir/src/crossHair.cpp.o"
+  "/home/workspace/capstone/src/face.cpp" "/home/workspace/capstone/build/CMakeFiles/faceTrack.dir/src/face.cpp.o"
   "/home/workspace/capstone/src/main.cpp" "/home/workspace/capstone/build/CMakeFiles/faceTrack.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
