@@ -1,28 +1,23 @@
-//#include <opencv2/opencv.hpp>
 #include <iostream>
-//#include <opencv2/objdetect.hpp>
 #include <opencv2/highgui.hpp>
-//#include <opencv2/imgproc.hpp>
 #include "face.h"
-//#include <chrono>                                                       // for debugging
-//#include <thread>                                                       // for debugging
+//#include <chrono>                                                                     // for debugging
+//#include <thread>                                                                     // for debugging
 
-
-
-//std::string cascadeName;
-//std::string nestedCascadeName;
+int checkUserInput();
 
 int main(int argc, char* argv[])
 {
     std::string cascadeName;
-    //std::string nestedCascadeName;
+    //std::string nestedCascadeName;                                                    // for future eye detection coupled with motion tracking 
     cv::Mat frame;
         
     // Open the video file for reading
     cv::VideoCapture cap("../data/Smaller_Sample_Video.mp4");                           // read the image from the video file 
                                                                                         // NOTE: Udacity Workspace has no USB Webcam
+
     // Use this to scale the size of the image that we send to the face detection algorithm so that there is less to have to compute (program runs faster)
-    double scale = 3;                                                                   // ###############################################################
+    double scale = 3;                                                                   // ############## Adjust as needed for performance #####################
 
     // Pull in pre-defined and pre-trained XML classifiers for identifying faces (re-use)
     // Haarcascades downloaded from https://github.com/opencv/opencv/tree/master/data/haarcascades
@@ -31,20 +26,19 @@ int main(int argc, char* argv[])
     //cv::CascadeClassifier nestedCascade;
     // Now load the classifier from local folder
     cascade.load("../models/haarcascade_frontalface_alt.xml");
-    //nestedCascade.load("../models/haarcascade_eye_tree_eyeglasses.xml");
-
+   
     // If opening the video file is not a success, exit program
     if (cap.isOpened() == false) {
         std::cout << "Cannot open the video file!" << std::endl;
         std::cout << "Shutting down program.  Press any key to exit." << std::endl;
-        std::cin.get();                                                                 //wait for any key press
+        std::cin.get();                                                                 // wait for any key press
         return -1;
     }
     else
-        std::cout << "Face Detection Started... " << std::endl;
+        std::cout << "Face Detection Started... " << std::endl;                         // everything is ready to start face detection
 
     if (cap.isOpened()) {
-        while (1) {                                                                     // Run until end of video or user command to stop
+        while (1) {                                                                     // run until end of video or user command to stop
             cap.read(frame);                                                            // read a new frame from the video file
             
             if (frame.empty()) {                                                        // end of video found, exit the program
@@ -57,12 +51,8 @@ int main(int argc, char* argv[])
             
             detect(frameClone, cascade, scale);                                         // find faces and mark them
             
-            // Breaking the while loop via user command
-            char c = (char)cv::waitKey(10);
-            if (c == 27 || c =='q' || c == 'Q') {                                       // key entry of 'esc', 'q', or 'Q'
-                std::cout << "Killing program as per keyboard command." << std::endl;
+            if (checkUserInput() == 1)                                                  // see if user wants to break out of this code
                 break;
-            }
         }
     }  
     else
@@ -72,9 +62,27 @@ int main(int argc, char* argv[])
 }
 
 
+int checkUserInput() {
+    // Breaking the while loop via user command
+    char c = (char)cv::waitKey(10);
+    if (c == 27 || c =='q' || c == 'Q') {                                               // key entry of 'esc', 'q', or 'Q'
+        std::cout << "Killing program as per keyboard command." << std::endl;
+        return 1;
+    }
+    else
+        return 0;
+}
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //std::cout << "************************ MADE IT THIS FAR! **************************" << std::endl;        // for debugging
 //std::chrono::seconds duration(3);
 //std::this_thread::sleep_for(duration);
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

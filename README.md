@@ -57,14 +57,18 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 * Submission must compile and run: **Done-**
 
 #### Loops, Functions, I/O Criteria
-* Functions and control strucutures: 
+* Functions and control strucutures: **Done-**
+    * Refer to main.cpp lines 69 (function call), 56 (while loop), 70 (control structure) 
 
-* Reads file data & processes it:  Done- main.cpp line 22
+* Reads file data & processes it:  **Done-**
+    * Refer to main.cpp line 31
 
-* Accept user input and process it:  Done- main.cpp line 61
+* Accept user input and process it:  **Done-**
+    * Refer to main.cpp line 15
 
 #### Object Oriented Programming
-* Use Object Oriented Programming techniques: 
+* Use Object Oriented Programming techniques: **Done-**
+    * Please refer to the multiple routines under the /src folder working together in an OOP way
 
 * Classes use access specifiers for class members:
 

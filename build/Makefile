@@ -177,6 +177,33 @@ src/face.cpp.s:
 	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/face.cpp.s
 .PHONY : src/face.cpp.s
 
+src/img.o: src/img.cpp.o
+
+.PHONY : src/img.o
+
+# target to build an object file
+src/img.cpp.o:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/img.cpp.o
+.PHONY : src/img.cpp.o
+
+src/img.i: src/img.cpp.i
+
+.PHONY : src/img.i
+
+# target to preprocess a source file
+src/img.cpp.i:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/img.cpp.i
+.PHONY : src/img.cpp.i
+
+src/img.s: src/img.cpp.s
+
+.PHONY : src/img.s
+
+# target to generate assembly for a file
+src/img.cpp.s:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/img.cpp.s
+.PHONY : src/img.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -204,6 +231,60 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/servo.o: src/servo.cpp.o
+
+.PHONY : src/servo.o
+
+# target to build an object file
+src/servo.cpp.o:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/servo.cpp.o
+.PHONY : src/servo.cpp.o
+
+src/servo.i: src/servo.cpp.i
+
+.PHONY : src/servo.i
+
+# target to preprocess a source file
+src/servo.cpp.i:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/servo.cpp.i
+.PHONY : src/servo.cpp.i
+
+src/servo.s: src/servo.cpp.s
+
+.PHONY : src/servo.s
+
+# target to generate assembly for a file
+src/servo.cpp.s:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/servo.cpp.s
+.PHONY : src/servo.cpp.s
+
+src/xyVector.o: src/xyVector.cpp.o
+
+.PHONY : src/xyVector.o
+
+# target to build an object file
+src/xyVector.cpp.o:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/xyVector.cpp.o
+.PHONY : src/xyVector.cpp.o
+
+src/xyVector.i: src/xyVector.cpp.i
+
+.PHONY : src/xyVector.i
+
+# target to preprocess a source file
+src/xyVector.cpp.i:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/xyVector.cpp.i
+.PHONY : src/xyVector.cpp.i
+
+src/xyVector.s: src/xyVector.cpp.s
+
+.PHONY : src/xyVector.s
+
+# target to generate assembly for a file
+src/xyVector.cpp.s:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/xyVector.cpp.s
+.PHONY : src/xyVector.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,9 +300,18 @@ help:
 	@echo "... src/face.o"
 	@echo "... src/face.i"
 	@echo "... src/face.s"
+	@echo "... src/img.o"
+	@echo "... src/img.i"
+	@echo "... src/img.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/servo.o"
+	@echo "... src/servo.i"
+	@echo "... src/servo.s"
+	@echo "... src/xyVector.o"
+	@echo "... src/xyVector.i"
+	@echo "... src/xyVector.s"
 .PHONY : help
 
 
