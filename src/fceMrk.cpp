@@ -1,9 +1,12 @@
 //#include <iostream>                                                                                       // include for debug
 #include <opencv2/imgproc.hpp>
-#include "crossHair.h"
+#include "fceMrk.h"
 
-// Function for cross hair placement
-void crossHair(std::vector<cv::Rect>& faces, double scale, cv::Mat& frameClone) 
+// Class for FaceMarking
+FaceMarking::FaceMarking(){}
+FaceMarking::~FaceMarking(){}
+
+void FaceMarking::crossHair(std::vector<cv::Rect>& faces, double scale, cv::Mat& frameClone) 
 {
     for (size_t i = 0; i < faces.size(); i++) {                                                             // pick out the various faces stored in the vector
         cv::Rect r = faces[i];                                                                              // rectangle object from face recognition algorithm

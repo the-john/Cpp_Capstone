@@ -8,17 +8,14 @@ int checkUserInput();
 
 int main(int argc, char* argv[])
 {
+    Face face;
     std::string cascadeName;
     //std::string nestedCascadeName;                                                    // for future eye detection coupled with motion tracking 
     cv::Mat frame;
         
     // Open the video file for reading
-    cv::VideoCapture cap("../data/Smaller_Sample_Video.mp4");                           // read the image from the video file 
-                                                                                        // NOTE: Udacity Workspace has no USB Webcam
-
-    // Use this to scale the size of the image that we send to the face detection algorithm so that there is less to have to compute (program runs faster)
-    double scale = 3;                                                                   // ############## Adjust as needed for performance #####################
-
+    //cv::VideoCapture cap("");                                                         // for testing                                                         // read the image from the video file 
+    cv::VideoCapture cap("../data/Smaller_Sample_Video.mp4");                                                                                    // NOTE: Udacity Workspace has no USB Webcam
     // Pull in pre-defined and pre-trained XML classifiers for identifying faces (re-use)
     // Haarcascades downloaded from https://github.com/opencv/opencv/tree/master/data/haarcascades
     // I saved these files in my project folder under /capstone/models/ and I use them from there
@@ -26,18 +23,9 @@ int main(int argc, char* argv[])
     //cv::CascadeClassifier nestedCascade;
     // Now load the classifier from local folder
     cascade.load("../models/haarcascade_frontalface_alt.xml");
-   
-    // If opening the video file is not a success, exit program
-    if (cap.isOpened() == false) {
-        std::cout << "Cannot open the video file!" << std::endl;
-        std::cout << "Shutting down program.  Press any key to exit." << std::endl;
-        std::cin.get();                                                                 // wait for any key press
-        return -1;
-    }
-    else
-        std::cout << "Face Detection Started... " << std::endl;                         // everything is ready to start face detection
-
+    
     if (cap.isOpened()) {
+        std::cout << "Face Detection has Started..." << std::endl;
         while (1) {                                                                     // run until end of video or user command to stop
             cap.read(frame);                                                            // read a new frame from the video file
             
@@ -49,18 +37,18 @@ int main(int argc, char* argv[])
             
             cv::Mat frameClone = frame.clone();                                         // make an image clone for face detection use
             
-            detect(frameClone, cascade, scale);                                         // find faces and mark them
+            face.detect(frameClone, cascade);                                           // find faces and mark them
             
             if (checkUserInput() == 1)                                                  // see if user wants to break out of this code
                 break;
         }
     }  
-    else
-        std::cout << "Could not open video file!" << std::endl;                         // notify terminal that video file did not load
+    else {
+        face.detect(Error());                                                           // unable to pull in a video image
+    }                                                                                   // notify terminal that video file did not load
 
     return 0;
 }
-
 
 int checkUserInput() {
     // Breaking the while loop via user command

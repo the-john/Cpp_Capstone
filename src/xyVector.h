@@ -4,7 +4,19 @@
 //#include <iostream>                                                               // for debug
 #include <opencv2/imgproc.hpp>
 
-// Function for cross hair placement
-void xyVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& frameClone);
+// Class for Facemark Vector
+class XYVector
+{
+    public:
+        // constructor / destructor
+        XYVector();
+        ~XYVector();
+
+        // getter and setter
+        void faceVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& frameClone);
+
+    private:
+
+};
 
 #endif

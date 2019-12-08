@@ -2,7 +2,12 @@
 #include <iomanip>
 #include <opencv2/imgproc.hpp>
 #include "img.h"
+#include "srvVctrs.h"
 #include "servo.h"
+
+// Class for gimbal pan tilt servos
+Servo::Servo(){}
+Servo::~Servo(){}
 
 // Here we pull apart the face difference vector and turn it into an "x" vector and a "y" vector. 
 // The "x" vector gets translated into a servo pulse width number (pulse width in ms) which can be used to adjust the gimbal pan.
@@ -10,23 +15,8 @@
 // Because you don't have gimbal attached to your Udacity Workspace, I will indicate these vector values with white lines on the image frame.
 
 // Function for x and y vector placement
-void servo(cv::Point frame, cv::Point target, cv::Mat& frameClone) 
+void Servo::pwms(cv::Point target, cv::Mat& frameClone) 
 {
-    cv::Scalar wht = cv::Scalar(255, 255, 255);                                                     // drawing tool color passed via Scalar for white
-    
-    cv::Point x_vectorPtr;                                                                          // create a vector for servo gimbal pan
-    x_vectorPtr.x = target.x;
-    x_vectorPtr.y = frame.y;
-    
-    cv::Point y_vectorPtr;                                                                          // create a vector for servo gimbal tilt
-    y_vectorPtr.x = frame.x;
-    y_vectorPtr.y = target.y;
-
-    if (target.x > 0)
-        cv::arrowedLine(frameClone, frame, x_vectorPtr, wht, 2, 8, 0, 0.1);                         // draw out the x vector (yaw) in white
-    if (target.y > 0)   
-        cv::arrowedLine(frameClone, frame, y_vectorPtr, wht, 2, 8, 0, 0.1);                         // draw out the y vector (pitch) in white
-
     // Now we calculate a representative pulse width for each vector
     // The gimbal at a position of full left or full up has a pulse width of 1.0ms
     // The gimgal at a position of full right or full down has a pulse width of 2.0ms

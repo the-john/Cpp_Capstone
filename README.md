@@ -14,13 +14,13 @@ The file and class structure of this program is shown below:
     <img src="https://github.com/the-john/Cpp_Capstone/blob/master/models/program.jpg">
 </p>
 
-The program reads in a video file image (and .mp4 file).  (NOTE: a live feed from a USB webcam can readily replace the video file image.)  In an attempt to speed up the performance, a copy of the image is made and shrunk.  This shrunken image is then sent to a pre-defined and pre-trained face recogniton algorithm called haarcascade_frontalface_alt.xml.  The face recognition algorithm returns the presence of a face (if it can identify one) by giving coordinates to the location of that face in the image.  These face coordinates are used to determine the middle of the face, and a cross-hairs marker colored as red is drawn onto the middle of the face for identification and location purposes.
+The program reads in a video file image (an .mp4 file).  (NOTE: a live feed from a USB webcam can readily replace the video file image.)  In an attempt to speed up the performance, a copy of the image is made and shrunk.  This shrunken image is then sent to a pre-defined and pre-trained face recogniton algorithm called haarcascade_frontalface_alt.xml.  The face recognition algorithm returns the presence of a face (if it can identify one) by giving coordinates to the location of that face in the image.  These face coordinates are used to determine the middle of the face, and a cross-hairs marker colored as red is drawn onto the middle of the face for identification and location purposes.
 
-The code then makes a determination of how far away that marker is from the center of the image and then calculates "x" and "y" values that represent the markers location delta from the center of the image.  The "x" and "y" values are then translated into PWM (Pulse Width Modulation) values that can be sent to I/O to drive the physical positioning of a cheap RC Servo.  More details on the cheap RC Servo below.  Because hooking cheap RC Servos is currently not an option for you, I visually represent the cheap RC Servo "x" and "y" location values as vector arrows eminating from the center of the image and is colored as white.
+The code then makes a determination of how far away that marker is from the center of the image and then calculates "x" and "y" values that represent the markers location delta from the center of the image.  The "x" and "y" values are then translated into PWM (Pulse Width Modulation) values that can be sent to I/O to drive the physical positioning of a cheap RC Servo.  More details on the cheap RC Servo below.  Because hooking cheap RC Servos is currently not an option for you, I visually represent the cheap RC Servo pan and tilt values in milli-seconds pulse values which can be seen in the top left and right corners of the display accorndingly.  I also show vector arrows eminating from the center of the image that are colored white.
 
 Details on how a cheap RC Servo works can be found [here](https://learn.sparkfun.com/tutorials/hobby-servo-tutorial/all):
 
-Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  The signal needs to be at 50Hz (20ms intervals), where each intervals pulse needs to be anywhere from 1ms to 2ms in lenght.  A 1ms pulse width will position the RC Servo to its full clockwise position.  A 2ms pulse width will position the RC Servo to its full counter-clockwise position.  To get the RC Servo into it's center position, a 1.5ms pulse width is needed.  NOTE: Cheap RC Servos are not "super accurate" devices.  No two operate exactly the same way.  So, you will need to "tweak" the pulse widths specifically for each servo if you want to get decent positioning.  Once you do this, the cheap RC Servo will remain fairly precise.
+Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  The signal needs to be at 50Hz (20ms intervals), where each intervals pulse needs to be anywhere from 1ms to 2ms in length.  A 1ms pulse width will position the RC Servo to its full clockwise position.  A 2ms pulse width will position the RC Servo to its full counter-clockwise position.  To get the RC Servo into it's center position, a 1.5ms pulse width is needed.  NOTE: Cheap RC Servos are not "super accurate" devices.  No two operate exactly the same way.  So, you will need to "tweak" the pulse widths specifically for each servo in the code if you want to get decent positioning.  Once you do this, the cheap RC Servo will remain fairly precise.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -68,19 +68,26 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 
 #### Object Oriented Programming
 * Use Object Oriented Programming techniques: **Done-**
-    * Please refer to the multiple routines under the /src folder working together in an OOP way
+    * Please refer to the multiple routines under the /src folder compiled and working together in an OOP way
 
-* Classes use access specifiers for class members:
+* Classes use access specifiers for class members: **Done-**
+    * Please refer to srvVctrs.h lines 10 and 23
 
-* Class constructors use member initialization lists:
+* Class constructors use member initialization lists:  **Done-**
+    * Please refer to face.h line 11
 
-* Class abstraction of implementation details:
+* Class abstraction of implementation details: **Done-**
+    * Please refer to face.h line 23
 
 * Class encapsulate behavior:
 
-* Classes follow inheritance hierarchy:
+* Classes follow inheritance hierarchy:  **Done-**
+    * Please refer to servo.h line 9
 
-* Overloaded functions:
+* Overloaded functions: **Done-**
+    * Please refer to main.cpp line 40 and 47
+    * Please refer to face.h line 24 and 25
+    * Please refer to face.cpp line 12 and 38
 
 * Derived Class functions override virtual base class functions:
 

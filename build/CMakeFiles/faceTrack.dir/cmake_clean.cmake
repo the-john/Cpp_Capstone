@@ -1,9 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/faceTrack.dir/src/main.cpp.o"
   "CMakeFiles/faceTrack.dir/src/face.cpp.o"
-  "CMakeFiles/faceTrack.dir/src/crossHair.cpp.o"
+  "CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o"
   "CMakeFiles/faceTrack.dir/src/img.cpp.o"
   "CMakeFiles/faceTrack.dir/src/xyVector.cpp.o"
+  "CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o"
   "CMakeFiles/faceTrack.dir/src/servo.cpp.o"
   "faceTrack.pdb"
   "faceTrack"

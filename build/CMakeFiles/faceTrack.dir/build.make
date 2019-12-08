@@ -83,18 +83,18 @@ CMakeFiles/faceTrack.dir/src/face.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/faceTrack.dir/src/face.cpp.s"
 	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/capstone/src/face.cpp -o CMakeFiles/faceTrack.dir/src/face.cpp.s
 
-CMakeFiles/faceTrack.dir/src/crossHair.cpp.o: CMakeFiles/faceTrack.dir/flags.make
-CMakeFiles/faceTrack.dir/src/crossHair.cpp.o: ../src/crossHair.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/faceTrack.dir/src/crossHair.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/faceTrack.dir/src/crossHair.cpp.o -c /home/workspace/capstone/src/crossHair.cpp
+CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o: CMakeFiles/faceTrack.dir/flags.make
+CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o: ../src/fceMrk.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o -c /home/workspace/capstone/src/fceMrk.cpp
 
-CMakeFiles/faceTrack.dir/src/crossHair.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/faceTrack.dir/src/crossHair.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/capstone/src/crossHair.cpp > CMakeFiles/faceTrack.dir/src/crossHair.cpp.i
+CMakeFiles/faceTrack.dir/src/fceMrk.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/faceTrack.dir/src/fceMrk.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/capstone/src/fceMrk.cpp > CMakeFiles/faceTrack.dir/src/fceMrk.cpp.i
 
-CMakeFiles/faceTrack.dir/src/crossHair.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/faceTrack.dir/src/crossHair.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/capstone/src/crossHair.cpp -o CMakeFiles/faceTrack.dir/src/crossHair.cpp.s
+CMakeFiles/faceTrack.dir/src/fceMrk.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/faceTrack.dir/src/fceMrk.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/capstone/src/fceMrk.cpp -o CMakeFiles/faceTrack.dir/src/fceMrk.cpp.s
 
 CMakeFiles/faceTrack.dir/src/img.cpp.o: CMakeFiles/faceTrack.dir/flags.make
 CMakeFiles/faceTrack.dir/src/img.cpp.o: ../src/img.cpp
@@ -122,9 +122,22 @@ CMakeFiles/faceTrack.dir/src/xyVector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/faceTrack.dir/src/xyVector.cpp.s"
 	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/capstone/src/xyVector.cpp -o CMakeFiles/faceTrack.dir/src/xyVector.cpp.s
 
+CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: CMakeFiles/faceTrack.dir/flags.make
+CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: ../src/srvVctrs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o -c /home/workspace/capstone/src/srvVctrs.cpp
+
+CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/capstone/src/srvVctrs.cpp > CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.i
+
+CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/capstone/src/srvVctrs.cpp -o CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.s
+
 CMakeFiles/faceTrack.dir/src/servo.cpp.o: CMakeFiles/faceTrack.dir/flags.make
 CMakeFiles/faceTrack.dir/src/servo.cpp.o: ../src/servo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/faceTrack.dir/src/servo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/faceTrack.dir/src/servo.cpp.o"
 	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/faceTrack.dir/src/servo.cpp.o -c /home/workspace/capstone/src/servo.cpp
 
 CMakeFiles/faceTrack.dir/src/servo.cpp.i: cmake_force
@@ -139,9 +152,10 @@ CMakeFiles/faceTrack.dir/src/servo.cpp.s: cmake_force
 faceTrack_OBJECTS = \
 "CMakeFiles/faceTrack.dir/src/main.cpp.o" \
 "CMakeFiles/faceTrack.dir/src/face.cpp.o" \
-"CMakeFiles/faceTrack.dir/src/crossHair.cpp.o" \
+"CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o" \
 "CMakeFiles/faceTrack.dir/src/img.cpp.o" \
 "CMakeFiles/faceTrack.dir/src/xyVector.cpp.o" \
+"CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o" \
 "CMakeFiles/faceTrack.dir/src/servo.cpp.o"
 
 # External object files for target faceTrack
@@ -149,9 +163,10 @@ faceTrack_EXTERNAL_OBJECTS =
 
 faceTrack: CMakeFiles/faceTrack.dir/src/main.cpp.o
 faceTrack: CMakeFiles/faceTrack.dir/src/face.cpp.o
-faceTrack: CMakeFiles/faceTrack.dir/src/crossHair.cpp.o
+faceTrack: CMakeFiles/faceTrack.dir/src/fceMrk.cpp.o
 faceTrack: CMakeFiles/faceTrack.dir/src/img.cpp.o
 faceTrack: CMakeFiles/faceTrack.dir/src/xyVector.cpp.o
+faceTrack: CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o
 faceTrack: CMakeFiles/faceTrack.dir/src/servo.cpp.o
 faceTrack: CMakeFiles/faceTrack.dir/build.make
 faceTrack: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_stitching3.so.3.3.1
@@ -200,7 +215,7 @@ faceTrack: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_objdetect3.so.3.3.1
 faceTrack: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgproc3.so.3.3.1
 faceTrack: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
 faceTrack: CMakeFiles/faceTrack.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable faceTrack"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable faceTrack"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/faceTrack.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
