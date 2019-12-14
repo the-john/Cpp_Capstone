@@ -77,9 +77,10 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
     * Please refer to face.h line 11
 
 * Class abstraction of implementation details: **Done-**
-    * Please refer to face.h line 23
+    * Please refer to face.h line 22
 
-* Class encapsulate behavior:
+* Class encapsulate behavior:  **Done-**
+    * Please refer to face.h line 29
 
 * Classes follow inheritance hierarchy:  **Done-**
     * Please refer to servo.h line 9
@@ -89,16 +90,22 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
     * Please refer to face.h line 24 and 25
     * Please refer to face.cpp line 12 and 38
 
-* Derived Class functions override virtual base class functions:
+* Derived Class functions override virtual base class functions:  **Done-**
+    * Please refer to srvVctrs.h lines 45 and 54
+    * Please refer to srvVctrs.cpp lines 33 and 35
 
-* Templates generalize functions in project:
+* Templates generalize functions in project:  **Done-**
+    * Please refer to servo.h line 31
+    * Please refer to servo.cpp lines 29 and 47
 
 #### Memory Management Criteria
-* Use of references in function declarations:
+* Use of references in function declarations:  **Done-**
+    * Please refer to face.cpp line 12
 
-* Use destructors appropriately:
+* Use destructors appropriately:  **Done-**
+    * Please refer to face.cpp line 10
 
-* Use RAII where approprate:
+* Use RAII where approprate:  
 
 * Follow the Rule of 5:
 

@@ -6,8 +6,8 @@
 #include "servo.h"
 
 // Class for gimbal pan tilt servos
-Servo::Servo(){}
-Servo::~Servo(){}
+Servo::Servo(){}                                                                                    // constructor
+Servo::~Servo(){}                                                                                   // destructor
 
 // Here we pull apart the face difference vector and turn it into an "x" vector and a "y" vector. 
 // The "x" vector gets translated into a servo pulse width number (pulse width in ms) which can be used to adjust the gimbal pan.
@@ -25,8 +25,8 @@ void Servo::pwms(cv::Point target, cv::Mat& frameClone)
     int imgHeight = frameClone.rows;
 
     // First we calculate for the gimbal's pan position
-    float pwx = 1.5;                                                                                // set our scan pulse width in ms
     float x_pos = target.x;
+    float pwx = position<float>(target.x);                                                          // wherever the x location comes from, force it into a float
     if (x_pos != 0)
         pwx = ((x_pos / imgWidth) - 0.5) + 1.5;
     else {
@@ -43,8 +43,8 @@ void Servo::pwms(cv::Point target, cv::Mat& frameClone)
         pwx = 1.0;
 
     // Now we calculate for the gimbal's tilt position
-    float pwy = 1.5;                                                                                // set our tilt pulse width in ms
     float y_pos = target.y;
+    float pwy = position<float>(target.y);                                                          // wherever the y location comes from, force it into a float
     if (y_pos != 0)
         pwy = ((y_pos / imgHeight) - 0.5) + 1.5;
     else

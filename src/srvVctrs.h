@@ -3,6 +3,7 @@
 
 //#include <iostream>                                                               // for debug
 #include <opencv2/highgui.hpp>
+//#include <opencv2/imgproc.hpp>
 
 // Class for Pan and Tilt gimbal servo vectors
 class SrvVctrs
@@ -28,7 +29,8 @@ class SrvVctrs
 class Mark
 {
     public:
-        virtual cv::Scalar color() = 0;
+        //virtual cv::Scalar color() = 0;
+        virtual cv::Scalar color() const = 0;                                 
 
     private:
         
@@ -40,13 +42,16 @@ class Yellow : public Mark
         int b = 0;
         int g = 255;
         int r = 255;
-        cv::Scalar color() { return (b, g, r); }
+        cv::Scalar color() const override { return cv::Scalar(b, g, r); }
 };
 
 class White : public Mark
 {
     public:
-        cv::Scalar color() { return (255, 255, 255); }
+        int b = 255;
+        int g = 255;
+        int r = 255;
+        cv::Scalar color() const override { return cv::Scalar(b, g, r); }
 };
 
 #endif

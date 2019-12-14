@@ -19,6 +19,7 @@ void SrvVctrs::vectors(cv::Point frame, cv::Point target, cv::Mat& frameClone)
 {
     Servo servo;
     Yellow ylw;                                                                                             // drawing tool color passed via Scalar for yellow
+    White wht;                                                                                              // drawing tool coler pased via Scalar for white
 
     cv::Point x_vectorPtr;                                                                                  // create a vector for servo gimbal pan
     x_vectorPtr.x = target.x;
@@ -31,7 +32,7 @@ void SrvVctrs::vectors(cv::Point frame, cv::Point target, cv::Mat& frameClone)
     if (target.x > 0)
         cv::arrowedLine(frameClone, frame, x_vectorPtr, ylw.color(), 2, 8, 0, 0.1);                         // draw out the x vector (yaw) in yellow
     if (target.y > 0)   
-        cv::arrowedLine(frameClone, frame, y_vectorPtr, ylw.color(), 2, 8, 0, 0.1);                         // draw out the y vector (pitch) in yellow
+        cv::arrowedLine(frameClone, frame, y_vectorPtr, wht.color(), 2, 8, 0, 0.1);                         // draw out the y vector (pitch) in yellow
 
     servo.pwms(target, frameClone);
 }

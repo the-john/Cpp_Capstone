@@ -1,7 +1,7 @@
 #ifndef FACE_H                                                                  // make sure header is not already defined
 #define FACE_H                                                                  // define header
 
-#include <iostream>                                                             // for debugging
+//#include <iostream>                                                             // for debugging
 #include <opencv2/objdetect.hpp>
 
 class Error {};
@@ -16,17 +16,28 @@ class Face
         // constructor / desctructor
         Face();
         ~Face();
+        Face(const Face &source);
+        //Face &operator=(const Face &source);
+        Face(Face &&source);
+        //Face &operator=(Face &&source);
 
         // getter and setter
         double scale() { return scale_; }
         void scale(double scale) { scale_ = scale; }
+        cv::Mat Frame() { return _frame; }
+        cv::Mat Frame(cv::Mat frame) { _frame = frame; }
 
-        void detect(cv::Mat& frameClone, cv::CascadeClassifier& cascade);
+        // functions
+        void detect(cv::CascadeClassifier& cascade);                            // cv::Mat& frameClone, 
         void detect(Error error);
+
+        void getFrame(cv::VideoCapture &cap, cv::CascadeClassifier& cascade);
+        int checkUserInput();
 
     private:
         // Use this to scale the size of the image that we send to the face detection algorithm so that there is less to have to compute (program runs faster)
         double scale_ = 3;                                                      // ############## Adjust as needed for performance #####################
+        cv::Mat _frame;                                                         // image frame to be shared with EVERYBODY!
         
 };
 
