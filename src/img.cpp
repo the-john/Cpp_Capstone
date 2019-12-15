@@ -2,8 +2,15 @@
 #include <opencv2/highgui.hpp>
 #include "img.h"
 
-// Function for cross hair placement
-void showImg(cv::Mat& frameClone) 
+// Class for displaying the final image
+Img::Img(){}                                                        // constructor
+Img::~Img(){                                                        // destructor
+    //std::cout << _text << " destroyed" << std::endl;
+}
+Img::Img(std::string text) { _text = text; }
+
+// Function to display the final resultant image
+void Img::showImg(cv::Mat& matFrame)
 {
-    cv::imshow("Robot Face Detection & Tracking", frameClone);                                          // show marked image
+    cv::imshow(_text, matFrame);                                    // show marked image with title
 }

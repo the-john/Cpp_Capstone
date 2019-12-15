@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/faceTrack.dir/src/xyVector.cpp.o"
   "CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o"
   "CMakeFiles/faceTrack.dir/src/servo.cpp.o"
+  "CMakeFiles/faceTrack.dir/src/raii.cpp.o"
   "faceTrack.pdb"
   "faceTrack"
 )

@@ -12,8 +12,8 @@ class FaceMarking
         FaceMarking();
         ~FaceMarking();
 
-        // getter and setter
-        void crossHair(std::vector<cv::Rect>& faces, double scale, cv::Mat& frameClone);
+        // function
+        void crossHair(std::vector<cv::Rect>& faces, double scale, cv::Mat& matFrame);
 
     private:
 };

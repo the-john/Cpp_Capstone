@@ -231,6 +231,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/raii.o: src/raii.cpp.o
+
+.PHONY : src/raii.o
+
+# target to build an object file
+src/raii.cpp.o:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/raii.cpp.o
+.PHONY : src/raii.cpp.o
+
+src/raii.i: src/raii.cpp.i
+
+.PHONY : src/raii.i
+
+# target to preprocess a source file
+src/raii.cpp.i:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/raii.cpp.i
+.PHONY : src/raii.cpp.i
+
+src/raii.s: src/raii.cpp.s
+
+.PHONY : src/raii.s
+
+# target to generate assembly for a file
+src/raii.cpp.s:
+	$(MAKE) -f CMakeFiles/faceTrack.dir/build.make CMakeFiles/faceTrack.dir/src/raii.cpp.s
+.PHONY : src/raii.cpp.s
+
 src/servo.o: src/servo.cpp.o
 
 .PHONY : src/servo.o
@@ -333,6 +360,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/raii.o"
+	@echo "... src/raii.i"
+	@echo "... src/raii.s"
 	@echo "... src/servo.o"
 	@echo "... src/servo.i"
 	@echo "... src/servo.s"

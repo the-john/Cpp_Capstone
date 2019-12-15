@@ -19,7 +19,8 @@ class SrvVctrs
         cv::Point target() { return target_; }
         void target(cv::Point target) { target_ = target; }
         
-        void vectors(cv::Point frame, cv::Point target, cv::Mat& frameClone);
+        // function
+        void vectors(cv::Point frame, cv::Point target, cv::Mat& matFrame);
 
     private:
     cv::Point frame_;

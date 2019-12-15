@@ -536,7 +536,10 @@ CMakeFiles/faceTrack.dir/src/main.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-d
 CMakeFiles/faceTrack.dir/src/main.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/faceTrack.dir/src/main.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/nonfree.hpp
 
-CMakeFiles/faceTrack.dir/src/servo.cpp.o: ../src/img.h
+CMakeFiles/faceTrack.dir/src/raii.cpp.o: ../src/raii.cpp
+CMakeFiles/faceTrack.dir/src/raii.cpp.o: ../src/raii.h
+
+CMakeFiles/faceTrack.dir/src/servo.cpp.o: ../src/raii.h
 CMakeFiles/faceTrack.dir/src/servo.cpp.o: ../src/servo.cpp
 CMakeFiles/faceTrack.dir/src/servo.cpp.o: ../src/servo.h
 CMakeFiles/faceTrack.dir/src/servo.cpp.o: ../src/srvVctrs.h
@@ -672,6 +675,7 @@ CMakeFiles/faceTrack.dir/src/servo.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-
 CMakeFiles/faceTrack.dir/src/servo.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/nonfree.hpp
 
 CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: ../src/img.h
+CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: ../src/raii.h
 CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: ../src/servo.h
 CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: ../src/srvVctrs.cpp
 CMakeFiles/faceTrack.dir/src/srvVctrs.cpp.o: ../src/srvVctrs.h

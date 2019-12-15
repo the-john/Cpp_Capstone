@@ -1,13 +1,17 @@
-//#include <iostream>                                                                               // include for debug
+#include <iostream>                                                                             // include for debug
 #include <iomanip>
 #include <opencv2/imgproc.hpp>
-#include "img.h"
 #include "srvVctrs.h"
 #include "servo.h"
+#include "raii.h"
 
 // Class for gimbal pan tilt servos
-Servo::Servo(){}                                                                                    // constructor
-Servo::~Servo(){}                                                                                   // destructor
+Servo::Servo(){                                                                                 // constructor
+    //std::cout << "CREATING instance of Servo at " << this << std::endl;
+}                                                                                   
+Servo::~Servo(){                                                                                // destructor
+    //std::cout << "DELETING instance of Servo at " << this << std::endl;
+}                                                                                   
 
 // Here we pull apart the face difference vector and turn it into an "x" vector and a "y" vector. 
 // The "x" vector gets translated into a servo pulse width number (pulse width in ms) which can be used to adjust the gimbal pan.
@@ -15,14 +19,14 @@ Servo::~Servo(){}                                                               
 // Because you don't have gimbal attached to your Udacity Workspace, I will indicate these vector values with white lines on the image frame.
 
 // Function for x and y vector placement
-void Servo::pwms(cv::Point target, cv::Mat& frameClone) 
+void Servo::pwms(cv::Point target, cv::Mat& matFrame) 
 {
     // Now we calculate a representative pulse width for each vector
     // The gimbal at a position of full left or full up has a pulse width of 1.0ms
     // The gimgal at a position of full right or full down has a pulse width of 2.0ms
     // The gimbal at a center position has a pulse width of 1.5ms
-    int imgWidth = frameClone.cols;
-    int imgHeight = frameClone.rows;
+    int imgWidth = matFrame.cols;
+    int imgHeight = matFrame.rows;
 
     // First we calculate for the gimbal's pan position
     float x_pos = target.x;
@@ -33,8 +37,8 @@ void Servo::pwms(cv::Point target, cv::Mat& frameClone)
         pwx = 1.5;                                                                                  // if we loose contact, go back to center position 
         int x_location = (imgWidth / 2) - 150;
         int y_location = imgHeight - (imgHeight / 10);
-        cv::putText(frameClone, "Face Target Lost!", cv::Point(x_location, y_location), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(0, 0, 255), 1, true);
-        cv::putText(frameClone, "Returning to center position.", cv::Point(x_location - 100, y_location + 40), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(0, 0, 255), 1, true);
+        cv::putText(matFrame, "Face Target Lost!", cv::Point(x_location, y_location), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(0, 0, 255), 1, true);
+        cv::putText(matFrame, "Returning to center position.", cv::Point(x_location - 100, y_location + 40), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(0, 0, 255), 1, true);
     }                                                                                 
 
     if (pwx > 2.0)                                                                                  // put some safety limits on the scan
@@ -62,14 +66,40 @@ void Servo::pwms(cv::Point target, cv::Mat& frameClone)
     std::string PanPwmS(panPwm.str());
     PanPwmS += " ms";
 
-    cv::putText(frameClone, "PAN PWM Value", cv::Point(30, 30), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(255, 255, 255), 1, true);
-    cv::putText(frameClone, PanPwmS, cv::Point(30, 70), cv::FONT_HERSHEY_DUPLEX, 1.5, cv::Scalar(255, 255, 255), 1, true);
+    cv::putText(matFrame, "PAN PWM Value", cv::Point(30, 30), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(255, 255, 255), 1, true);
+    cv::putText(matFrame, PanPwmS, cv::Point(30, 70), cv::FONT_HERSHEY_DUPLEX, 1.5, cv::Scalar(255, 255, 255), 1, true);
 
     std::ostringstream tiltPwm;
     tiltPwm << std::setprecision(3) << std::fixed << pwy;
     std::string tiltPwmS(tiltPwm.str());
     tiltPwmS += " ms";
 
-    cv::putText(frameClone, "TILT PWM Value", cv::Point(625, 30), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(255, 255, 255), 1, true);
-    cv::putText(frameClone, tiltPwmS, cv::Point(625, 70), cv::FONT_HERSHEY_DUPLEX, 1.5, cv::Scalar(255, 255, 255), 1, true);
+    cv::putText(matFrame, "TILT PWM Value", cv::Point(625, 30), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(255, 255, 255), 1, true);
+    cv::putText(matFrame, tiltPwmS, cv::Point(625, 70), cv::FONT_HERSHEY_DUPLEX, 1.5, cv::Scalar(255, 255, 255), 1, true);
+
+    // So in the future when I do have gimbals attached to my motherboard (Raspberry Pi)
+    // Set up data to move out to a piece of dedicated PWM silicon on embedded board
+    // For now, let's pretend like that dedicated PWM silicon register resides in the RAII class
+    // And the existance of the RAII class is to help me message my X and Y values, (i.e.) real-world tweeks and adjustments
+    RAII objX(pwx);
+    Servo::pwmRegX(std::move(objX));
+
+    Servo::pwmRegY(Servo::uniquePointer(pwy)); 
+}
+
+void Servo::pwmRegX(RAII obj)
+{
+    // write moved obj to ficticious I/O memory map location of X axis PWM register
+}
+
+void Servo::pwmRegY(std::unique_ptr<float> yPtr)
+{
+    // write value from yPtr to ficticious I/O memory map location of Y axis PWM register
+}
+
+std::unique_ptr<float> Servo::uniquePointer(float pwy)
+{
+    std::unique_ptr<float> yPtr(new float);             // create a pointer on the stack
+    *yPtr = pwy;                                        // assign the pointer a value
+    return yPtr;
 }

@@ -15,6 +15,6 @@ message(STATUS "    version:  ${OpenCV_VERSION}")
 message(STATUS "    libraries:  ${OpenCV_LIBS}")
 message(STATUS "    include path:  ${OpenCV_INCUDE_DIRS}")
 ]]
-add_executable(faceTrack src/main.cpp src/face.cpp src/fceMrk.cpp src/img.cpp src/xyVector.cpp src/srvVctrs.cpp src/servo.cpp)
+add_executable(faceTrack src/main.cpp src/face.cpp src/fceMrk.cpp src/img.cpp src/xyVector.cpp src/srvVctrs.cpp src/servo.cpp src/raii.cpp)
 
 target_link_libraries(faceTrack LINK_PRIVATE ${OpenCV_LIBS})

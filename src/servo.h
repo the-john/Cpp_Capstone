@@ -4,6 +4,7 @@
 //#include <iostream>                                                               // for debug
 #include <opencv2/highgui.hpp>
 #include "srvVctrs.h"
+#include "raii.h"
 
 // Class for Pan and Tilt gimbal servo pulse widths
 class Servo : SrvVctrs                                                              // Make a child class of SrvVctrs 
@@ -19,7 +20,11 @@ class Servo : SrvVctrs                                                          
         cv::Point target() { return target_; }
         void target(cv::Point target) { target_ = target; }
 
-        void pwms(cv::Point target, cv::Mat& frameClone);
+        // function
+        void pwms(cv::Point target, cv::Mat& matFrame);
+        void pwmRegX(RAII obj);
+        void pwmRegY(std::unique_ptr<float> yPtr);
+        std::unique_ptr<float> uniquePointer(float pwy);
 
     private:
         cv::Point frame_;

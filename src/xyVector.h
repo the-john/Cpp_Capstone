@@ -12,8 +12,8 @@ class XYVector
         XYVector();
         ~XYVector();
 
-        // getter and setter
-        void faceVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& frameClone);
+        // function
+        void faceVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& matFrame);
 
     private:
 

@@ -1,4 +1,4 @@
-# Robot Face Tracking
+# Human Face Tracking
 
 In this project, I've built my own C++ applicaiton for my home robot.  My home robot has eyes which are small CCD cameras.  I would like the eyes of my robot to move around and actually look at an individual that it is engauged with.  The camera's are on gimbals, and can track the movement of face with this software.  The intent is to make my home robot more "life like" with its HMI.  
 
@@ -105,13 +105,17 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 * Use destructors appropriately:  **Done-**
     * Please refer to face.cpp line 10
 
-* Use RAII where approprate:  
+* Use RAII where approprate:  **Done-***
+    * Please refer to raii.h and raii.cpp
 
-* Follow the Rule of 5:
+* Follow the Rule of 5:  **Done-**
+    * Please refer to raii.cpp
 
-* Use move semantics:
+* Use move semantics:  **Done-**
+    * Please refer to servo.cpp line 85
 
-* Use smart pointers:
+* Use smart pointers:  **Done-**
+    * Please refer to servo.cpp line 87
 
 #### Concurrency Criteria
 * Use multithreading:
