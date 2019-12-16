@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(capstone)
+add_definitions(-std=c++17)
 
 set(CXX_FLAGS "-Wall")
-set(CMAKE_CXX_FLAGS, ${CXX_FLAGS}, "-std=c++17 -pthread")
+set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-find_package (Threads)
+project(capstone)
 
 find_package(OpenCV REQUIRED)
 #[[
@@ -18,4 +18,4 @@ message(STATUS "    include path:  ${OpenCV_INCUDE_DIRS}")
 
 add_executable(faceTrack src/main.cpp src/face.cpp src/fceMrk.cpp src/img.cpp src/xyVector.cpp src/srvVctrs.cpp src/servo.cpp src/raii.cpp)
 
-target_link_libraries(faceTrack LINK_PRIVATE ${OpenCV_LIBS} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(faceTrack LINK_PRIVATE ${OpenCV_LIBS})

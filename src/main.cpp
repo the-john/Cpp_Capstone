@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 #include <opencv2/highgui.hpp>
 #include "face.h"
 
@@ -21,6 +22,13 @@ int main(int argc, char* argv[])
     //cv::CascadeClassifier nestedCascade;
     // Now load the classifier from local folder
     cascade.load("../models/haarcascade_frontalface_alt.xml");
+
+    // Print out the number of CPU cores available in this system (just for fun)
+    unsigned int nCores = std::thread::hardware_concurrency();
+    std::cout << "This machine has " << nCores << " cores available" << std::endl;
+
+    // Print out the thread ID for the main program (just for fun) to the terminal
+    std::cout << "The ""main"" Thread ID is " << std::this_thread::get_id() << std::endl;
     
     if (cap.isOpened()) {
         std::cout << "Face Detection has Started..." << std::endl;

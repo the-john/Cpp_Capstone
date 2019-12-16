@@ -30,31 +30,31 @@ void Servo::pwms(cv::Point target, cv::Mat& matFrame)
 
     // First we calculate for the gimbal's pan position
     float x_pos = target.x;
-    float pwx = position<float>(target.x);                                                          // wherever the x location comes from, force it into a float
+    float pwx = position<float>(target.x);                                                      // wherever the x location comes from, force it into a float
     if (x_pos != 0)
         pwx = ((x_pos / imgWidth) - 0.5) + 1.5;
     else {
-        pwx = 1.5;                                                                                  // if we loose contact, go back to center position 
+        pwx = 1.5;                                                                              // if we loose contact, go back to center position 
         int x_location = (imgWidth / 2) - 150;
         int y_location = imgHeight - (imgHeight / 10);
         cv::putText(matFrame, "Face Target Lost!", cv::Point(x_location, y_location), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(0, 0, 255), 1, true);
         cv::putText(matFrame, "Returning to center position.", cv::Point(x_location - 100, y_location + 40), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.5, cv::Scalar(0, 0, 255), 1, true);
     }                                                                                 
 
-    if (pwx > 2.0)                                                                                  // put some safety limits on the scan
+    if (pwx > 2.0)                                                                              // put some safety limits on the scan
         pwx = 2.0;
     if (pwx < 1.0)
         pwx = 1.0;
 
     // Now we calculate for the gimbal's tilt position
     float y_pos = target.y;
-    float pwy = position<float>(target.y);                                                          // wherever the y location comes from, force it into a float
+    float pwy = position<float>(target.y);                                                      // wherever the y location comes from, force it into a float
     if (y_pos != 0)
         pwy = ((y_pos / imgHeight) - 0.5) + 1.5;
     else
-        pwy = 1.5;                                                                                  // if we loose contact, go back to centr position
+        pwy = 1.5;                                                                              // if we loose contact, go back to centr position
 
-    if (pwy > 2.0)                                                                                  // put some safety limits on the tilt
+    if (pwy > 2.0)                                                                              // put some safety limits on the tilt
         pwy = 2.0;
     if (pwy < 1.0)
         pwy = 1.0;
@@ -79,25 +79,27 @@ void Servo::pwms(cv::Point target, cv::Mat& matFrame)
 
     // So in the future when I do have gimbals attached to my motherboard (Raspberry Pi)
     // Set up data to move out to a piece of dedicated PWM silicon on embedded board
-    // For now, let's pretend like that dedicated PWM silicon register resides in the RAII class
-    // And the existance of the RAII class is to help me message my X and Y values, (i.e.) real-world tweeks and adjustments
-    RAII objX(pwx);
-    Servo::pwmRegX(std::move(objX));
+    // For now, let's pretend that the existance of the RAII class is to help me "message" my X and Y values, (i.e.) make real-world tweeks and adjustments
+    RAII objX(pwx);                                                                             // make an object
+    Servo::pwmRegX(std::move(objX));                                                            // move that object via move semantics
 
-    Servo::pwmRegY(Servo::uniquePointer(pwy)); 
+    Servo::pwmRegY(Servo::uniquePointer(pwy));                                                  // create a smart pointer and move it to the function
 }
 
-void Servo::pwmRegX(RAII obj)
+void Servo::pwmRegX(RAII objX)
 {
-    // write moved obj to ficticious I/O memory map location of X axis PWM register
+    float pwmX = objX.data();                                                                   // get data from moved object
+    // write this data to ficticious I/O memory map location of the X axis PWM register
+    //std::cout << "Pulse Width for PAN provided by the move of an object is = " << pwmX << "                 "; // sudo "write to PWM register"
 }
 
-void Servo::pwmRegY(std::unique_ptr<float> yPtr)
+void Servo::pwmRegY(std::unique_ptr<float> yPtr)                                                // use smart pointer to get and use data
 {
     // write value from yPtr to ficticious I/O memory map location of Y axis PWM register
+    //std::cout << "Pulse Width for TILT provided by the smart pointer is = " << *yPtr << std::endl;  // sudo "write to PWM register"
 }
 
-std::unique_ptr<float> Servo::uniquePointer(float pwy)
+std::unique_ptr<float> Servo::uniquePointer(float pwy)                                          // make a smart pointer
 {
     std::unique_ptr<float> yPtr(new float);             // create a pointer on the stack
     *yPtr = pwy;                                        // assign the pointer a value

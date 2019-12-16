@@ -118,7 +118,8 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
     * Please refer to servo.cpp line 87
 
 #### Concurrency Criteria
-* Use multithreading:
+* Use multithreading:  **Done-**
+    * Please refer to face.cpp lines 52 and 55
 
 * Use a promise and a future:
 

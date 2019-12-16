@@ -4,20 +4,14 @@
 #include "srvVctrs.h"
 
 // Class for Facemark Vector
-XYVector::XYVector(){                                                                                   // constructor
-    //std::cout << "CREATING instance of xyVector at " << this << std::endl;
-}
-XYVector::~XYVector(){                                                                                  // destructor
-    //std::cout << "DELETING instance of xyVector at " << this << std::endl;
-}
 
 // Here we generate a vector that indicates the difference between the center of the image, and the center of each detected face.
 // Because the robot head gimbal has a comparitively slow response time, its physical movement will integrate all of the face difference vectors together.
 // This integration will enable the gimbal to atain an "average" position relative to any and all faces in the image.
 
-// Function for x and y vector placement
-void XYVector::faceVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& matFrame) 
-{
+XYVector::XYVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& matFrame) : _faces(faces), _scale(scale), _matFrame(matFrame)       //  constructor
+{                                                                                  
+    //std::cout << "CREATING instance of xyVector at " << this << std::endl;
     SrvVctrs srvVctrs;
     cv::Scalar grn = cv::Scalar(0, 255, 0);                                                             // drawing tool color passed via Scalar for green
     cv::Scalar blu = cv::Scalar(255, 0, 0);                                                             // drawing tool color passed via Scalar for blue
@@ -28,14 +22,19 @@ void XYVector::faceVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& m
     frameCenter.y = cvRound(matFrame.rows * 0.5);
     
     // Below marks the center of our framed image
-    cv::drawMarker(matFrame, frameCenter, blu, 1, 50, 2, 8);
+    cv::drawMarker(_matFrame, frameCenter, blu, 1, 50, 2, 8);
     
     cv::Point targetCenter;                                                                             // define the 2-D point for the target face
     for (size_t i = 0; i < faces.size(); i++) {                                                         // pick out the various faces stored in the vector
         cv::Rect r = faces[i];                                                                          // rectangle object from face recognition algorithm
-        targetCenter.x = cvRound((r.x + r.width * 0.5) * scale);                                        // round fp number to nearest integer
-        targetCenter.y = cvRound((r.y + r.height * 0.5) * scale);                                       // round fp number to nearest integer
-        cv::arrowedLine(matFrame, frameCenter, targetCenter, grn, 2, 8, 0, 0.1);                      // draw out the xyVector in green
+        targetCenter.x = cvRound((r.x + r.width * 0.5) * _scale);                                       // round fp number to nearest integer
+        targetCenter.y = cvRound((r.y + r.height * 0.5) * _scale);                                      // round fp number to nearest integer
+        cv::arrowedLine(_matFrame, frameCenter, targetCenter, grn, 2, 8, 0, 0.1);                       // draw out the xyVector in green
     }
-    srvVctrs.vectors(frameCenter, targetCenter, matFrame);
+    srvVctrs.vectors(frameCenter, targetCenter, _matFrame);
 }
+XYVector::~XYVector(){                                                                                  // destructor
+    //std::cout << "DELETING instance of xyVector at " << this << std::endl;
+}
+
+void XYVector::operator()() {}
