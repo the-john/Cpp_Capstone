@@ -2,8 +2,6 @@
 #define RAII_H                                                                      // define header
 
 #include <stdlib.h>
-#include <iostream>                                                               // for debugging
-//#include <opencv2/objdetect.hpp>
 
 // Class for RAII
 class RAII

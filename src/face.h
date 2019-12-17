@@ -3,6 +3,7 @@
 
 //#include <iostream>                                                                 // for debugging
 #include <opencv2/objdetect.hpp>
+#include <mutex>
 
 class Error {};
 
@@ -31,8 +32,9 @@ class Face
         
     private:
         // Use this to scale the size of the image that we send to the face detection algorithm so that there is less to have to compute (program runs faster)
-        double scale_ = 2;                                                          // ############## Adjust as needed for performance #####################
+        double scale_ = 2.0;                                                        // ############## Adjust as needed for performance #####################
         cv::Mat _frame;                                                             // image frame to be shared with EVERYBODY!      
+        std::mutex _mutex;
 };
 
 #endif

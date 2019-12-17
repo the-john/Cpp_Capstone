@@ -14,15 +14,24 @@ XYVector::XYVector(std::vector<cv::Rect>& faces, double scale, cv::Mat& matFrame
     //std::cout << "CREATING instance of xyVector at " << this << std::endl;
     SrvVctrs srvVctrs;
     cv::Scalar grn = cv::Scalar(0, 255, 0);                                                             // drawing tool color passed via Scalar for green
-    cv::Scalar blu = cv::Scalar(255, 0, 0);                                                             // drawing tool color passed via Scalar for blue
+    
+    // create promise and future
+    std::promise<cv::Scalar> blu;
+    std::future<cv::Scalar> ftr = blu.get_future();
+
+    // start thread and pass promise as the argument
+    std::thread b(XYVector::setColorBlue, std::move(blu));                                              // start thread to make a blue color for drawing tool
 
     // Find the center of the image frame
     cv::Point frameCenter;
-    frameCenter.x = cvRound(matFrame.cols * 0.5);
-    frameCenter.y = cvRound(matFrame.rows * 0.5);
+    frameCenter.x = cvRound(_matFrame.cols * 0.5);
+    frameCenter.y = cvRound(_matFrame.rows * 0.5);
     
+    // thread barrier
+    b.join();
+
     // Below marks the center of our framed image
-    cv::drawMarker(_matFrame, frameCenter, blu, 1, 50, 2, 8);
+    cv::drawMarker(_matFrame, frameCenter, ftr.get(), 1, 50, 2, 8);
     
     cv::Point targetCenter;                                                                             // define the 2-D point for the target face
     for (size_t i = 0; i < faces.size(); i++) {                                                         // pick out the various faces stored in the vector
@@ -38,3 +47,9 @@ XYVector::~XYVector(){                                                          
 }
 
 void XYVector::operator()() {}
+
+void XYVector::setColorBlue(std::promise<cv::Scalar> && blu)
+{
+    cv::Scalar clr = cv::Scalar(255, 0, 0);                                                             // set color to blue
+    blu.set_value(clr);
+}

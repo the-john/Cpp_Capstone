@@ -2,7 +2,6 @@
 #include <opencv2/objdetect.hpp>
 #include <opencv2/highgui.hpp>
 #include <thread>
-//#include <vector>                                                                                               /////////////////////////////////////
 #include "face.h"
 #include "fceMrk.h"
 #include "xyVector.h"
@@ -19,9 +18,7 @@ Face::~Face(){                                                                  
 void Face::getFrame(cv::VideoCapture &cap, cv::CascadeClassifier& cascade)
 {
     while (1) {                                                                                             // run until end of video or user command to stop
-        //std::cout << "About to read the frame in getFrame **************************************************" << std::endl;  // for debug
         cap.read(_frame);                                                                                   // read a new frame from the video file
-        //std::cout << "Just read the frame in getFrame ######################################################" << std::endl;  // for debug
         if (Frame().empty()) {                                                                              // end of video found, exit the program
             std::cout << "I found the end of the video... " << std::endl;
             std::cout << "Ending the program." << std::endl;
@@ -47,13 +44,17 @@ void Face::detect(cv::CascadeClassifier& cascade)
     cv::equalizeHist(shrinkImg, shrinkImg);                                                                 // increase contrast via histogram equalization
     cascade.detectMultiScale(shrinkImg, faces, 1.1, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(50, 80));        // detect faces of different sizes useing cascade classifier (30, 30)
     
-    
-    //faceMarking.crossHair(faces, scale(), _frame);                                                          // put crosshairs on faces in image with a thread
+    // put crosshairs on faces in image with a thread
+    Face::_mutex.lock();                                                                                    // lock key resources needed for this code
     std::thread faceMark(FaceMarking(faces, scale(), _frame));                                              // launch thread to put crosshairs on faces in image
-    
-    //xyVector.faceVector(faces, scale(), _frame);                                                            // show offset vector from center of image to center of face
+    Face::_mutex.unlock();                                                                                  // unlock key resources
+
+    // show offset vector from center of image to center of face with a thread
+    Face::_mutex.lock();                                                                                    // lock key resources needed for this code
     std::thread vectorMark(XYVector(faces, scale(), _frame));                                               // launch thread to put vectors on image
+    Face::_mutex.unlock();                                                                                  // unlock key resources
     
+    // thread barrier
     faceMark.join();
     vectorMark.join();
 
@@ -79,24 +80,3 @@ int Face::checkUserInput() {
     else
         return 0;
 }
-
-/*
-    // Make a vector containing both threads
-    std::vector<std::thread> threads;
-
-    // start the threads
-    int nThreads = 4;
-    for (int i = 0; i < nThreads; ++i)
-    {
-        threads.emplace_back(std::thread[]() {              // stuff thread vector with lambda functions = the part being sent to the thread to be executed in parallel
-            while (true);                                   // infinite loop in thread
-        }));
-    }
-    // wait for threads to finish before leaving
-    std::for_each(threads.begin(), threads.end(), [](std::thread &t) {
-        t.join();
-    });
-
-    */
-    
-    

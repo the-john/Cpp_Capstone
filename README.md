@@ -1,4 +1,4 @@
-# Human Face Tracking
+# Human Face Tracking for my Home Robot
 
 In this project, I've built my own C++ applicaiton for my home robot.  My home robot has eyes which are small CCD cameras.  I would like the eyes of my robot to move around and actually look at an individual that it is engauged with.  The camera's are on gimbals, and can track the movement of face with this software.  The intent is to make my home robot more "life like" with its HMI.  
 
@@ -58,52 +58,51 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
 
 #### Loops, Functions, I/O Criteria
 * Functions and control strucutures: **Done-**
-    * Refer to main.cpp lines 69 (function call), 56 (while loop), 70 (control structure) 
+    * Refer to face.cpp line 28 (function call), 20 (while loop), 29 (control structure) 
 
 * Reads file data & processes it:  **Done-**
-    * Refer to main.cpp line 31
+    * Refer to main.cpp line 44 and 52
 
 * Accept user input and process it:  **Done-**
-    * Refer to main.cpp line 15
+    * Refer to face.cpp line 76
 
 #### Object Oriented Programming
 * Use Object Oriented Programming techniques: **Done-**
     * Please refer to the multiple routines under the /src folder compiled and working together in an OOP way
 
 * Classes use access specifiers for class members: **Done-**
-    * Please refer to srvVctrs.h lines 10 and 23
+    * Please refer to srvVctrs.h lines 11 and 25
 
 * Class constructors use member initialization lists:  **Done-**
-    * Please refer to face.h line 11
+    * Please refer to face.h line 15
 
 * Class abstraction of implementation details: **Done-**
-    * Please refer to face.h line 22
+    * Please refer to face.h line 30
 
 * Class encapsulate behavior:  **Done-**
-    * Please refer to face.h line 29
+    * Please refer to face.h line 35
 
 * Classes follow inheritance hierarchy:  **Done-**
-    * Please refer to servo.h line 9
+    * Please refer to servo.h line 10
 
 * Overloaded functions: **Done-**
-    * Please refer to main.cpp line 40 and 47
-    * Please refer to face.h line 24 and 25
-    * Please refer to face.cpp line 12 and 38
+    * Please refer to face.h line 28 and 29
+    * Please refer to face.cpp line 34 and 65
 
 * Derived Class functions override virtual base class functions:  **Done-**
-    * Please refer to srvVctrs.h lines 45 and 54
-    * Please refer to srvVctrs.cpp lines 33 and 35
+    * Please refer to srvVctrs.h lines 40 and 49
+    * Please refer to srvVctrs.cpp lines 25 and 26
 
 * Templates generalize functions in project:  **Done-**
-    * Please refer to servo.h line 31
-    * Please refer to servo.cpp lines 29 and 47
+    * Please refer to servo.h line 36
+    * Please refer to servo.cpp lines 33 and 51
 
 #### Memory Management Criteria
 * Use of references in function declarations:  **Done-**
-    * Please refer to face.cpp line 12
+    * Please refer to face.cpp line 18
 
 * Use destructors appropriately:  **Done-**
-    * Please refer to face.cpp line 10
+    * Please refer to face.cpp line 14
 
 * Use RAII where approprate:  **Done-***
     * Please refer to raii.h and raii.cpp
@@ -112,17 +111,21 @@ Basically, you need to feed the RC Servo a PWM (Pulse Width Modulated) signal.  
     * Please refer to raii.cpp
 
 * Use move semantics:  **Done-**
-    * Please refer to servo.cpp line 85
+    * Please refer to servo.cpp line 83
 
 * Use smart pointers:  **Done-**
-    * Please refer to servo.cpp line 87
+    * Please refer to servo.cpp line 86
 
 #### Concurrency Criteria
 * Use multithreading:  **Done-**
-    * Please refer to face.cpp lines 52 and 55
+    * Please refer to face.cpp lines 49 and 54
 
-* Use a promise and a future:
+* Use a promise and a future:  **Done-**
+    * Please refer to xyVector.h line 18
+    * Please refer to xyVector.cpp lines 19 and 20
 
-* Mutex or lock is used:
+* Mutex or lock is used:  **Done-**
+    * Please refer to face.cpp lines 48, 50 and 53, 55
 
-* Use condition variable:
+* Use condition variable:  **Done-**
+    * Please refer to main.cpp lines 60 through 78

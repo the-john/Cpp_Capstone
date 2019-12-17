@@ -101,7 +101,7 @@ void Servo::pwmRegY(std::unique_ptr<float> yPtr)                                
 
 std::unique_ptr<float> Servo::uniquePointer(float pwy)                                          // make a smart pointer
 {
-    std::unique_ptr<float> yPtr(new float);             // create a pointer on the stack
-    *yPtr = pwy;                                        // assign the pointer a value
+    std::unique_ptr<float> yPtr(new float);                                                     // create a pointer on the stack
+    *yPtr = pwy;                                                                                // assign the pointer a value
     return yPtr;
 }

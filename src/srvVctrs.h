@@ -1,9 +1,7 @@
 #ifndef SRVVCTRS_H                                                                     // make sure header is not already defined
 #define SRVVCTRS_H                                                                     // define header
 
-//#include <iostream>                                                               // for debug
 #include <opencv2/highgui.hpp>
-//#include <opencv2/imgproc.hpp>
 
 // Class for Pan and Tilt gimbal servo vectors
 class SrvVctrs

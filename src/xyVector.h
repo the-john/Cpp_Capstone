@@ -3,6 +3,7 @@
 
 //#include <iostream>                                                                 // for debug
 #include <opencv2/imgproc.hpp>
+#include <future>
 
 // Class for Facemark Vector
 class XYVector
@@ -14,6 +15,7 @@ class XYVector
 
         // function
         void operator()();
+        static void setColorBlue(std::promise<cv::Scalar> && color);
 
     private:
         std::vector<cv::Rect>& _faces;
